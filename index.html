@@ -47,11 +47,13 @@
         a = 5; 
 
         function incrementValue(callback) {
-            plus.addEventListener("click", ()=>{
-            a++;
-            a = (a < 10) ? "0" + a: a;
-            num.innerText = a;
-            callback(a);
+            plus.addEventListener("click", ()=> {
+            if(a < 25) {
+                a++;
+                a = (a < 10) ? "0" + a: a;
+                num.innerText = a;
+                callback(a);
+                }
             });
         }
 
