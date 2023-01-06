@@ -4,9 +4,15 @@
 * {
     font-family: 'Raleway', sans-serif;
     color: white;
-    background-color: #2A303C;
     margin: 0;
     padding: 0;
+}
+
+body {
+    background-image: url(./fabrizio-conti-kXVogATbFgA-unsplash.jpg);
+    height: 600;
+    background-position: center;
+    background-size: cover;
 }
 
 li a, button {
