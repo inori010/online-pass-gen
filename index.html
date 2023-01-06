@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <title>hello :)</title>
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logo"><div class="logo-text">hello.</div></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Password Generator</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
+        </nav>
+        <a href="#"><button class="contact-button">Contact</button></a>
+    </header>
+    <div class="container">
+        <h1 class="title-prompt">How many characters would you like your password to have?</h1>
+        <div class="counter-generate-buttons">
+            <div class="counter">
+                <span class="minus">-</span>
+                <span class="num">01</span>
+                <span class="plus">+</span>
+            </div>
+            <a href="#"><button id="generate-button" onclick="copyButtonAppear()">Go!</button></a>
+        </div>
+        <div class="password-copy">
+            <h1 id="generated-password"></h1>
+            <button id="copy-button" class="hidden" onclick="copyToClipboard()">Copy</button>
+        </div>
+        
+    </div>
+    
+    <script>
+        const plus = document.querySelector(".plus"),
+            minus = document.querySelector(".minus"),
+            num = document.querySelector(".num");
+
+        a = 1; 
+
+        function incrementValue(callback) {
+            plus.addEventListener("click", ()=>{
+            a++;
+            a = (a < 10) ? "0" + a: a;
+            num.innerText = a;
+            callback(a);
+            });
+        }
+
+        incrementValue(function(value) {
+            console.log(value);
+        });
+
+        function decrementValue(callback) {
+            minus.addEventListener("click", ()=> {
+            if(a > 1) {
+            a --;
+            a = (a < 10) ? "0" + a: a;
+            num.innerText = a;
+            callback(a);
+            }
+            });
+        }
+    
+        decrementValue(function(value) {
+            console.log(value)
+        });
+
+        function copyToClipboard() {
+            var copyText = document.getElementById('generated-password');
+            navigator.clipboard.writeText(copyText.innerText);
+            alert("Password copied to clipboard.");
+        };
+
+        function copyButtonAppear() {
+            document.getElementById('copy-button').className = 'show';
+        };
+    </script>
+
+    <py-script>
+    from js import document
+    from pyodide import create_proxy
+    import secrets
+    import string
+        
+    def create_password(e):
+        global password
+        from js import a
+        library = string.ascii_letters + string.digits + "!@#$%&-/"
+        password = "".join(secrets.choice(library) for i in range(int(a)))
+        pyscript.write("generated-password", password)
+
+    create_password_proxy = create_proxy(create_password)
+    create_password_button = document.getElementById('generate-button')
+    create_password_button.addEventListener("click", create_password_proxy)
+    </py-script>
+</body>
+</html>
