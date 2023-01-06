@@ -21,6 +21,10 @@ li a, button {
     color: #0a0922;
 }
 
+li a {
+    color: white;
+}
+
 header {
     display: flex;
     align-items: center;
