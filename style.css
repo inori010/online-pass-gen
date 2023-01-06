@@ -154,13 +154,15 @@ a {
     background: #2de28b;
     border: solid 0px;
     cursor: pointer;
-    font-size: 20px;
-    transform: all 0.3s ease;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    transform: scale(1);
 }
 
 #generate-button:hover {
-    border: solid 2px #2de28b;
+    border: solid 1px #2de28b;
     background-color: #2A303C;
+    transform: scale(1.1);
 }
 
 #generated-password {
@@ -189,20 +191,21 @@ a {
 }
 
 #copy-button {
-    margin-left: 15px;
+    margin-left: 20px;
     margin-top: 80px;
     width: 70px;
     height: 60px;
     border: 0px solid;
     cursor: pointer;
     border-radius: 30px;
-    transform: all 0.3s ease 0s;
     background-color: #2de28b;
-    color: white;
-    transform: all 0.3s ease;
+    transition: all 0.3s ease;
+    transform: scale(1);
+    font-size: 18px;
 }
 
 #copy-button:hover {
     border: 1px solid #2de28b;
     background-color: #2A303C;
+    transform: scale(1.1);
 }
