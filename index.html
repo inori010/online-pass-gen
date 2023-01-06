@@ -27,7 +27,7 @@
         <div class="counter-generate-buttons">
             <div class="counter">
                 <span class="minus">-</span>
-                <span class="num">01</span>
+                <span class="num">05</span>
                 <span class="plus">+</span>
             </div>
             <a href="#"><button id="generate-button" onclick="copyButtonAppear()">Go!</button></a>
@@ -44,7 +44,7 @@
             minus = document.querySelector(".minus"),
             num = document.querySelector(".num");
 
-        a = 1; 
+        a = 5; 
 
         function incrementValue(callback) {
             plus.addEventListener("click", ()=>{
@@ -61,7 +61,7 @@
 
         function decrementValue(callback) {
             minus.addEventListener("click", ()=> {
-            if(a > 1) {
+            if(a > 5) {
             a --;
             a = (a < 10) ? "0" + a: a;
             num.innerText = a;
