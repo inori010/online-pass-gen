@@ -225,11 +225,40 @@ a {
 
 .molecular-box {
     margin-top: -30px;
-    font-size: 28px;
 }
 
 input {
+    transition: all 0.3s ease;
+    border: 0px solid transparent;
+    background-color: #1e1d38;
+}
+
+input[type="text"] {
     border-radius: 14px;
-    border: 1px solid purple;
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    font-size: 24px;
+    color: #1e1d38;
+}
+
+input[type="submit"] {
+    border-radius: 14px;
+    font-size: 18px;
+    margin-left: 10px;
+    height: 64px;
+    padding: 10px;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.04);
+    background-color: #E0C3FC;
     color: #0a0922;
+    cursor: pointer;
+}
+
+input[type="text"]:hover {
+    transform: scale(1.05);
+    border: 3px solid #0a0922;
+    background-color: #E0C3FC;
 }
