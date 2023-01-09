@@ -1,3 +1,5 @@
+from js import document
+from pyodide import create_proxy
 import re 
 
 MM_of_Elements = {
@@ -122,3 +124,4 @@ MM_of_Elements = {
     '': 0
 }
 
+pattern = re.compile(r'([A-Z][a-z]?)([0-9]+)?')
