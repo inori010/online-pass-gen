@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: white;
     margin: 0;
     padding: 0;
@@ -130,7 +130,6 @@ a {
     font-size: 24px;
     font-weight: 700;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
     transition: 0.3s all;
     user-select: none;
     -moz-user-select: none;
@@ -222,4 +221,15 @@ a {
     background-color: #0a0922;
     transform: scale(1.1);
     color: rgb(186, 167, 225);
+}
+
+.molecular-box {
+    margin-top: -30px;
+    font-size: 28px;
+}
+
+input {
+    border-radius: 14px;
+    border: 1px solid purple;
+    color: #0a0922;
 }
