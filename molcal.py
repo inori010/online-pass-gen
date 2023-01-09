@@ -2,7 +2,7 @@ from js import document
 from pyodide import create_proxy
 import re 
 
-MM_of_Elements = {
+periodic_table = {
     'H': 1.00794, 
     'He': 4.002602,
     'Li': 6.941, 
@@ -125,3 +125,22 @@ MM_of_Elements = {
 }
 
 pattern = re.compile(r'([A-Z][a-z]?)([0-9]+)?')
+
+def calculate_weight(e):
+    global formatted_weight 
+    from js import userInputtedFormula
+    total_weight = 0.0
+
+    spliced_formula = re.findall(pattern, userInputtedFormula)
+    for element, el_multiple in spliced_formula:
+        if el_multiple != "":
+            total_weight += periodic_table[element] * int(el_multiple)
+        else:
+            total_weight += periodic_table[element]
+    formatted_weight = "{:.2f}".format(total_weight)
+    JStotal_weight = Element("total-molecular-weight")
+    JStotal_weight.element.innerText = userInputtedFormula + ": " + formatted_weight
+
+calculate_weight_proxy = create_proxy(calculate_weight)
+calculate_weight_button = document.getElementById('calculate-button')
+calculate_weight_button.addEventListener("click", calculate_weight_proxy)
