@@ -139,7 +139,7 @@ def calculate_weight(e):
             total_weight += periodic_table[element]
     formatted_weight = "{:.2f}".format(total_weight)
     JStotal_weight = Element("total-molecular-weight")
-    JStotal_weight.element.innerText = userInputtedFormula + ": " + formatted_weight
+    JStotal_weight.element.innerText = userInputtedFormula + ": " + formatted_weight + "g/mol"
 
 calculate_weight_proxy = create_proxy(calculate_weight)
 calculate_weight_button = document.getElementById('calculate-button')
